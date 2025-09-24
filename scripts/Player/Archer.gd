@@ -52,13 +52,12 @@ func _physics_process(delta: float) -> void:
 			rotated = 0.0
 			$AnimatedSprite2D.rotation_degrees = 0
 	
-	if Input.is_action_just_pressed("Atck1") and not shoting and not shoting_recharge:
+	if not shoting and not shoting_recharge:
 		Arrow_Shoot()
 		shoting_recharge = true
 		await get_tree().create_timer(1.0).timeout
 		shoting_recharge = false
 		shoting = false
-
 
 func start_dash():
 	if dash_count >= 1:
@@ -76,9 +75,6 @@ func start_rotation():
 
 func Arrow_Shoot():
 	shoting = true
-	$AnimatedSprite2D.play("basic_atack")
-	get_tree().create_timer(3.0).timeout
- 
 	var arrow = Arrow.instantiate()
 	arrow.global_position = $Bow.global_position
 

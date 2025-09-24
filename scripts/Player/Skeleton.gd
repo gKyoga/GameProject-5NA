@@ -22,6 +22,10 @@ func _physics_process(delta: float) -> void:
 		if direction.length() > 0.1:
 			if Vector2.ZERO != direction:
 				anim_sprite.play("Chase")
+			if direction.x > 0:
+				anim_sprite.flip_h = false
+			elif direction.x < 0:
+				anim_sprite.flip_h = true
 			else:
 				if anim_sprite.animation != "Idle":
 					anim_sprite.play("Idle")

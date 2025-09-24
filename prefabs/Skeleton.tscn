@@ -151,30 +151,32 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sfmcc"]
-size = Vector2(47, 87)
+size = Vector2(12.4, 18.2)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qhfbj"]
-size = Vector2(47, 87)
+size = Vector2(13.6, 18.4)
 
 [node name="Skeleton" type="CharacterBody2D" groups=["Enemy"]]
 texture_filter = 1
+position = Vector2(14, 41)
+scale = Vector2(5, 5)
 collision_layer = 4
 collision_mask = 4
 script = ExtResource("1_8as54")
 metadata/_edit_group_ = true
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-scale = Vector2(5, 5)
 sprite_frames = SubResource("SpriteFrames_g5mpn")
 animation = &"Chase"
 
 [node name="ZPosCalculator" type="Node2D" parent="." groups=["Enemy"]]
-position = Vector2(2, 15)
+position = Vector2(2, 4.2)
 script = ExtResource("3_84ubl")
 CanMove = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(13.5, -7.5)
+position = Vector2(1.8, -1.3)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_sfmcc")
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -182,6 +184,7 @@ collision_layer = 5
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(13.5, -7.5)
+position = Vector2(3, -1.4)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_qhfbj")
 debug_color = Color(0.96716, 0.140343, 0.29849, 0.42)

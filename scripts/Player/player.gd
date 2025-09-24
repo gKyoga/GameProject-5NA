@@ -5,7 +5,7 @@ class_name Player
 #status base
 var Level = 1
 var Hp = 100
-var Spd = 600
+var Spd = 300
 var Xp = 0
 
 #variaveis de movimentação
@@ -34,7 +34,7 @@ func MovePlayer(delta):
 		dir += Vector2.RIGHT
 		$AnimatedSprite2D.flip_h = false
 		
-	elif dir != Vector2.ZERO:
+	if dir != Vector2.ZERO:
 		$AnimatedSprite2D.play("Walk")
 	else:
 		$AnimatedSprite2D.play("Idle")

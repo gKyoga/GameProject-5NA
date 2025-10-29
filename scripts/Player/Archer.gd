@@ -20,6 +20,7 @@ var rotated = 0.0
 #-- shot -- 
 var shoting = false
 var shoting_recharge = false
+var current_target: Node2D = null
 
 func _physics_process(delta: float) -> void:
 	# movimentação base
@@ -81,3 +82,13 @@ func Arrow_Shoot():
 	arrow.target = $EnemyDetectArea.enemy_target 
 	
 	owner.add_child(arrow)
+	
+	
+func update_target():
+	if has_node("EnemyDetectArea"):
+		var detector = $EnemyDetectArea
+		# força o cálculo da atualização (simula o _physics_process)
+		detector._physics_process(0.0)
+		current_target = detector.enemy_target
+	else:
+		current_target = null
